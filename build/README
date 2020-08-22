@@ -1,0 +1,2 @@
+# Javascript build artifacts go here and are picked up by the `server` container 
+(flask process).
