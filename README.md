@@ -1,10 +1,10 @@
 ```
-                                        __                      
+                                        __
    .-----.--------.-----.--.--.--.-----|  |--.---.-.-----.-----.
    |  _  |        |  _  |  |  |  |  -__|  _  |  _  |  _  |  _  |
    |_____|__|__|__|___  |________|_____|_____|___._|   __|   __|
-                  |_____|                          |__|  |__|   
-                                                                
+                  |_____|                          |__|  |__|
+
 ```
 
 ## omgwebapp ➭ a minimal flask/react/webpack starter thing
@@ -14,7 +14,7 @@ You consider yourself a pretty decent webdev, but getting all the accoutrements 
 to even start thinking about building a modern web application is an amount of work on
 par with a masters degree. Your six-months out-of-date understanding of webpack is now
 worse than useless. Last time you tried to get `node_modules` to work with docker's
-volume mounts, you wondered about jumping off your roof instead. 
+volume mounts, you wondered about jumping off your roof instead.
 
 
 ![if you lived here you'd be home by now](assets/console.png)
@@ -23,7 +23,7 @@ Don't spend eight weeks of your life fretting over boilerplate. Just use this ha
 decent start.
 
 
-### frontend 
+### frontend
 
 - webpack
   - As simple a config as I could make it while being relatively fully-featured.
@@ -38,7 +38,7 @@ decent start.
 - react-router
   - Minimal, sensible config.
 - **No redux** - it's too much boilerplate, and is sort of
-  [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/). 
+  [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/).
   I just can't be bothered anymore.
 - **No test frameworks** - because really, who has the time
 
@@ -66,6 +66,29 @@ decent start.
 Sane Makefile that's essentially just aliasing for docker-compose.
 
 
+### Principles
+
+- Everything is done in docker. No dependencies are installed on host aside from
+  docker, docker-compose, and maybe make.
+
+- I've tried to make it as straightforward as possible to swap out components. Want to
+  use Django, postgres, some message queue, whatever? Shouldn't be too hard.
+
+- Everything is served by the `server` container; a Flask webapp. This includes static
+  files as well as the frontend application.
+
+- The `webpack` container is simply responsible for compiling the frontend javascript
+  and sticking it in `/build`, which is a mounted directory that is shared with the
+  `server` container.
+
+- Not particularly production ready, and doesn't want to be.
+  This isn't really geared at people running bigtime
+  heavy-duty industrial strength applications; this is for people who want to get
+  something lightweight and halfway decent going with enough extensibility to grow
+  into production. For low-traffic web applications, it should be sufficient to slap
+  this up on a single box with `docker-compose up -d` and some restart policies.
+
+
 ### What's the example do?
 
 ![here it is](assets/screenshot.png)
@@ -79,35 +102,13 @@ The web UI lets you schedule greetings. Don't get too excited now.
 Obviously this should be pretty easy to change; start at
 `frontend/src/components/Home.jsx` and `backend/changeme/{web,db}.py`.
 
-### Principles
-
-- Everything is done in docker. No dependencies are installed on host aside from 
-  docker, docker-compose, and maybe make.
-
-- I've tried to make it as straightforward as possible to swap out components. Want to
-  use Django, postgres, some message queue, whatever? Shouldn't be too hard.
-
-- Everything is served by the `server` container; a Flask webapp. This includes static
-  files as well as the frontend application.
-
-- The `webpack` container is simply responsible for compiling the frontend javascript
-  and sticking it in `/build`, which is a mounted directory that is shared with the
-  `server` container.
-
-- Not particularly production ready, and doesn't want to be. 
-  This isn't really geared at people running bigtime
-  heavy-duty industrial strength applications; this is for people who want to get
-  something lightweight and halfway decent going with enough extensibility to grow
-  into production. For low-traffic web applications, it should be sufficient to slap
-  this up on a single box with `docker-compose up -d` and some restart policies.
-
 ### Installation
- 
+
 I'm not using [cookiecutter](https://github.com/cookiecutter/cookiecutter) etc. because
 I think it's worthwhile for you to go through and manually change the stuff that needs
 changing; that way we can both pretend you have a modicum of understanding of this
 boilerplate that you've wantonly downloaded from some guy on the internet.
- 
+
 Find and replace all instances of `changeme` and move the Python directory:
 ```sh
 $ mv backend/{changeme,$YOUR_PROJECT_NAME}
