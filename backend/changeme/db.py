@@ -11,8 +11,6 @@ from . import config
 
 log = logging.getLogger(__name__)
 
-
-# We use the SqliteExtDatabase by default for its json capabilities.
 database = connect(config.DB_URL)
 
 
@@ -46,7 +44,6 @@ def create_tables():
 # def mig_001():
 #     from playhouse.migrate import SqliteMigrator, migrate
 #     migrator = SqliteMigrator(database)
-
 #     migrate(
 #         migrator.add_column(Host._meta.table.__name__, 'python', Host.python),
 #     )
