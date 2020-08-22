@@ -1,0 +1,47 @@
+version: "3"
+services:
+
+  webpack: 
+    build:
+      context: frontend/
+    working_dir: /app
+    volumes:
+      - ./frontend:/app
+      - ./assets/:/assets
+      - ./build/:/build
+    ports:
+      - "7081:7081"
+    command: "yarn start"
+
+  server:
+    build:
+      context: backend/
+    image: changeme/py
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+      - ./assets/:/assets
+      - ./build/:/build
+    ports:
+      - "7082:7082"
+    command: "changeme-web"
+    depends_on:
+      - webpack
+    environment:
+      # Don't pollute the mounted directory with pycache files, otherwise we encounter
+      # permissions problems.
+      PYTHONPYCACHEPREFIX: /pycache
+
+  worker:
+    image: changeme/py
+    working_dir: /app
+    volumes:
+      - ./backend:/app
+    command: "changeme-worker" 
+    environment:
+      # Don't pollute the mounted directory with pycache files, otherwise we encounter
+      # permissions problems.
+      PYTHONPYCACHEPREFIX: /pycache
+
+volumes:
+  node_modules:
