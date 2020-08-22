@@ -7,7 +7,7 @@
                                                                 
 ```
 
-## omgwebapp => a minimal flask/react/webpack fun pack
+## omgwebapp ➭ a minimal flask/react/webpack fun pack
 
 ![if you lived here you'd be home by now](assets/console.png)
 
