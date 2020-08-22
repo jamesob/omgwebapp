@@ -13,12 +13,12 @@ You consider yourself a pretty decent webdev, but getting all the accoutrements 
 to even start thinking about building a modern web application is an amount of work on
 par with a masters degree. Your six-months out-of-date understanding of webpack is now
 worse than useless. Last time you tried to get `node_modules` to work with docker's
-bind mounts, you shot up a post office instead. 
+volume mounts, you wondered about jumping off your roof instead. 
 
-Don't spend eight weeks of your life fretting over boilerplate, just use this decent
-start.
+Don't spend eight weeks of your life fretting over boilerplate, just use this halfway
+decent start.
 
-- Frontend
+- frontend
   - webpack
     - As simple a config as I could make it while being relatively fully-featured.
     - Typescript enabled
@@ -33,8 +33,10 @@ start.
     - Minimal, sensible config.
   - **No redux** - it's too much boilerplate, and is 
     [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/).
+  - **No test frameworks** - because really, who has the time
 
-- Backend
+- backend
+  - python3.8
   - flask
   - peewee (ORM)
     - It's light, simple, and has all the features you want.
@@ -46,10 +48,26 @@ start.
   - mypy
     - TODO
 
+### What's the example do?
+
+![here it is](assets/screenshot.png)
+
+The app demonstrates basic functionality in each of the pieces of tech used; it defines
+database models, creates a basic API, and offers a simple interface for creating "jobs"
+that ultimately get executed by an asynchronous worker process.
+
+The web UI lets you schedule greetings. Don't get too excited now.
+
+Obviously this should be pretty easy to change; start at
+`frontend/src/components/Home.jsx` and `backend/changeme/{web,db}.py`.
+
 ### Principles
 
 - Everything is done in docker. No dependencies are installed on host aside from 
   docker, docker-compose, and maybe make.
+
+- I've tried to make it as straightforward as possible to swap out components. Want to
+  use Django, postgres, some message queue, whatever? Shouldn't be too hard.
 
 - Everything is served by the `server` container; a Flask webapp. This includes static
   files as well as the frontend application.
@@ -64,7 +82,6 @@ start.
   something lightweight and halfway decent going with enough extensibility to grow
   into production. For low-traffic web applications, it should be sufficient to slap
   this up on a single box with `docker-compose up -d` and some restart policies.
-
 
 ### Installation
  
