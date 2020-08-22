@@ -22,7 +22,7 @@ decent start.
   - webpack
     - As simple a config as I could make it while being relatively fully-featured.
     - Typescript enabled
-    - PostCSS configured
+    - PostCSS configured: imports, nested CSS, and cssnano.
   - bootstrap (via react-bootstrap)
     - It's simple, it works, you probably already know it.
   - bootstrap table example
@@ -31,8 +31,9 @@ decent start.
     - Allows us to easily configure `node_modules` to live only in the built container.
   - react-router
     - Minimal, sensible config.
-  - **No redux** - it's too much boilerplate, and is 
-    [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/).
+  - **No redux** - it's too much boilerplate, and is sort of
+    [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/). 
+    I just can't be bothered anymore.
   - **No test frameworks** - because really, who has the time
 
 - backend
@@ -46,6 +47,8 @@ decent start.
     - Allows easy, Rust-style inline test functions.
     - In-memory fixture database set up.
   - mypy
+    - TODO
+  - sensible logging config
     - TODO
 
 ### What's the example do?
@@ -99,3 +102,12 @@ $ grep -R changeme .
 You'll need Docker and docker-compose on host, but beyond that it should be a simple
 matter of running `make build up logs`. Check out the `Makefile` for more
 details.
+
+### Things you should consider doing before production
+
+- [ ] pin and vendor all dependencies
+
+### Credits
+
+Long ago, this was sort of a fork of
+[flask-react-boilerplate](https://github.com/YaleDHLab/flask-react-boilerplate).

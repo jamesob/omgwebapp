@@ -1,0 +1,111 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+ */
+
+body, html {
+  height: 100%;
+  width: 100%;
+  /* font-family: 'Karla'; */
+}
+
+.navbar .container {
+  padding-left: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.help-icon {
+  margin-left: 5px;
+}
+
+label.form-label {
+  margin-bottom: 0rem;
+}
+
+.react-bootstrap-table {
+  width: 100%;
+
+  th.sortable {
+    cursor: pointer;
+  }
+}
+
+.card-body, .card-header {
+  padding: 0.4rem !important;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+
+.job {
+  .card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .btn {
+      margin-left: 0.3rem;
+    }
+  }
+
+  .react-bootstrap-table {
+    margin-top: 1rem;
+  }
+
+  &.card {
+    width: 100%;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .job-card-row {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.4rem;
+  }
+
+  .job-card-row .state {
+    margin-left: auto;
+  }
+
+  .status-icon {
+    margin-right: 0.4rem;
+  }
+
+  .title {
+    margin-right: 0.6rem;
+  }
+
+  .user {
+    margin-left: auto !important;
+  }
+
+  .badge {
+    margin-left: 0.3rem;
+  }
+
+  .badge {
+    border: 1px solid #ddd;
+  }
+}
+
+.ok {
+  color: green;
+}
+
+.pending {
+  color: gray;
+}
+
+.fail {
+  color: red;
+}
+
+.running {
+  color: orange;
+}
