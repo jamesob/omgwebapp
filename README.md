@@ -51,6 +51,10 @@ decent start.
   - sensible logging config
     - TODO
 
+- makefile
+  - Sane Makefile that's essentially just aliasing for docker-compose
+
+
 ### What's the example do?
 
 ![here it is](assets/screenshot.png)
