@@ -1,0 +1,84 @@
+```
+     ______  __    __  ______  __     __  ______  ______  ______  ______  ______  
+    /\  __ \/\ "-./  \/\  ___\/\ \  _ \ \/\  ___\/\  == \/\  __ \/\  == \/\  == \ 
+    \ \ \/\ \ \ \-./\ \ \ \__ \ \ \/ ".\ \ \  __\\ \  __<\ \  __ \ \  _-/\ \  _-/ 
+     \ \_____\ \_\ \ \_\ \_____\ \__/".~\_\ \_____\ \_____\ \_\ \_\ \_\   \ \_\   
+      \/_____/\/_/  \/_/\/_____/\/_/   \/_/\/_____/\/_____/\/_/\/_/\/_/    \/_/   
+                                                                                  
+```
+
+## omgwebapp => a minimal flask/react/webpack fun pack
+
+You consider yourself a pretty decent webdev, but getting all the accoutrements going
+to even start thinking about building a modern web application is an amount of work on
+par with a masters degree. Your six-months out-of-date understanding of webpack is now
+worse than useless. Last time you tried to get `node_modules` to work with docker's
+bind mounts, you shot up a post office instead. 
+
+Don't spend eight weeks of your life fretting over boilerplate, just use this decent
+start.
+
+- Frontend
+  - webpack
+    - As simple a config as I could make it while being relatively fully-featured.
+    - Typescript enabled
+    - PostCSS configured
+  - bootstrap (via react-bootstrap)
+    - It's simple, it works, you probably already know it.
+  - bootstrap table example
+    - You'll need this at some point.
+  - yarn
+    - Allows us to easily configure `node_modules` to live only in the built container.
+  - react-router
+    - Minimal, sensible config.
+  - **No redux** - it's too much boilerplate, and is 
+    [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/).
+
+- Backend
+  - flask
+  - peewee (ORM)
+    - It's light, simple, and has all the features you want.
+  - functioning asynchronous worker: powered by a database queue, a sleep loop, and
+    no extra dependencies. Shouldn't be too hard to add Celery if you want it.
+  - py.test
+    - Allows easy, Rust-style inline test functions.
+    - In-memory fixture database set up.
+  - mypy
+    - TODO
+
+### Principles
+
+- Everything is done in docker. No dependencies are installed on host aside from 
+  docker, docker-compose, and maybe make.
+
+- Everything is served by the `server` container; a Flask webapp. This includes static
+  files as well as the frontend application.
+
+- The `webpack` container is simply responsible for compiling the frontend javascript
+  and sticking it in `/build`, which is a mounted directory that is shared with the
+  `server` container.
+
+- Not particularly production ready, and doesn't want to be. 
+  This isn't really geared at people running bigtime
+  heavy-duty industrial strength applications; this is for people who want to get
+  something lightweight and halfway decent going with enough extensibility to grow
+  into production. For low-traffic web applications, it should be sufficient to slap
+  this up on a single box with `docker-compose up -d` and some restart policies.
+
+
+### Installation
+ 
+I'm not using [cookiecutter](https://github.com/cookiecutter/cookiecutter) etc. because
+I think it's worthwhile for you to go through and manually change the stuff that needs
+changing; that way we can both pretend you have a modicum of understanding of this
+boilerplate that you've wantonly downloaded from some guy on the internet.
+ 
+Find and replace all instances of `changeme` and move the Python directory:
+```sh
+$ mv backend/{changeme,$YOUR_PROJECT_NAME}
+$ grep -R changeme .
+```
+
+You'll need Docker and docker-compose on host, but beyond that it should be a simple
+matter of running `make build up logs`. Check out the `Makefile` for more
+details.
