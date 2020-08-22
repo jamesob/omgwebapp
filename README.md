@@ -9,7 +9,6 @@
 
 ## omgwebapp ➭ a minimal flask/react/webpack fun pack
 
-![if you lived here you'd be home by now](assets/console.png)
 
 You consider yourself a pretty decent webdev, but getting all the accoutrements going
 to even start thinking about building a modern web application is an amount of work on
@@ -19,6 +18,8 @@ volume mounts, you wondered about jumping off your roof instead.
 
 Don't spend eight weeks of your life fretting over boilerplate, just use this halfway
 decent start.
+
+![if you lived here you'd be home by now](assets/console.png)
 
 ### frontend 
 
