@@ -1,10 +1,10 @@
 ```
-                                      __                      
- .-----.--------.-----.--.--.--.-----|  |--.---.-.-----.-----.
- |  _  |        |  _  |  |  |  |  -__|  _  |  _  |  _  |  _  |
- |_____|__|__|__|___  |________|_____|_____|___._|   __|   __|
-                |_____|                          |__|  |__|   
-                                                              
+                                        __                      
+   .-----.--------.-----.--.--.--.-----|  |--.---.-.-----.-----.
+   |  _  |        |  _  |  |  |  |  -__|  _  |  _  |  _  |  _  |
+   |_____|__|__|__|___  |________|_____|_____|___._|   __|   __|
+                  |_____|                          |__|  |__|   
+                                                                
 ```
 
 ## omgwebapp => a minimal flask/react/webpack fun pack
@@ -18,41 +18,44 @@ volume mounts, you wondered about jumping off your roof instead.
 Don't spend eight weeks of your life fretting over boilerplate, just use this halfway
 decent start.
 
-- frontend
-  - webpack
-    - As simple a config as I could make it while being relatively fully-featured.
-    - Typescript enabled
-    - PostCSS configured: imports, nested CSS, and cssnano.
-  - bootstrap (via react-bootstrap)
-    - It's simple, it works, you probably already know it.
-  - bootstrap table example
-    - You'll need this at some point.
-  - yarn
-    - Allows us to easily configure `node_modules` to live only in the built container.
-  - react-router
-    - Minimal, sensible config.
-  - **No redux** - it's too much boilerplate, and is sort of
-    [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/). 
-    I just can't be bothered anymore.
-  - **No test frameworks** - because really, who has the time
+### frontend 
 
-- backend
-  - python3.8
-  - flask
-  - peewee (ORM)
-    - It's light, simple, and has all the features you want.
-  - functioning asynchronous worker: powered by a database queue, a sleep loop, and
-    no extra dependencies. Shouldn't be too hard to add Celery if you want it.
-  - py.test
-    - Allows easy, Rust-style inline test functions.
-    - In-memory fixture database set up.
-  - mypy
-    - TODO
-  - sensible logging config
-    - TODO
+- webpack
+  - As simple a config as I could make it while being relatively fully-featured.
+  - Typescript enabled
+  - PostCSS configured: imports, nested CSS, and cssnano.
+- bootstrap (via react-bootstrap)
+  - It's simple, it works, you probably already know it.
+- bootstrap table example
+  - You'll need this at some point.
+- yarn
+  - Allows us to easily configure `node_modules` to live only in the built container.
+- react-router
+  - Minimal, sensible config.
+- **No redux** - it's too much boilerplate, and is sort of
+  [obviated by hooks](https://blog.logrocket.com/use-hooks-and-context-not-react-and-redux/). 
+  I just can't be bothered anymore.
+- **No test frameworks** - because really, who has the time
 
-- makefile
-  - Sane Makefile that's essentially just aliasing for docker-compose
+### backend
+
+- python3.8
+- flask
+- peewee (ORM)
+  - It's light, simple, and has all the features you want.
+- functioning asynchronous worker: powered by a database queue, a sleep loop, and
+  no extra dependencies. Shouldn't be too hard to add Celery if you want it.
+- py.test
+  - Allows easy, Rust-style inline test functions.
+  - In-memory fixture database set up.
+- mypy
+  - TODO
+- sensible logging config
+  - TODO
+
+### makefile
+
+Sane Makefile that's essentially just aliasing for docker-compose.
 
 
 ### What's the example do?
