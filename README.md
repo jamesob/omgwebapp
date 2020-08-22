@@ -16,10 +16,12 @@ par with a masters degree. Your six-months out-of-date understanding of webpack 
 worse than useless. Last time you tried to get `node_modules` to work with docker's
 volume mounts, you wondered about jumping off your roof instead. 
 
-Don't spend eight weeks of your life fretting over boilerplate, just use this halfway
-decent start.
 
 ![if you lived here you'd be home by now](assets/console.png)
+
+Don't spend eight weeks of your life fretting over boilerplate. Just use this halfway
+decent start.
+
 
 ### frontend 
 
