@@ -7,7 +7,7 @@
                                                                 
 ```
 
-## omgwebapp ➭ a minimal flask/react/webpack fun pack
+## omgwebapp ➭ a minimal flask/react/webpack starter thing
 
 
 You consider yourself a pretty decent webdev, but getting all the accoutrements going
