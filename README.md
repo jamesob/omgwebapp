@@ -9,6 +9,8 @@
 
 ## omgwebapp => a minimal flask/react/webpack fun pack
 
+![if you lived here you'd be home by now](assets/console.png)
+
 You consider yourself a pretty decent webdev, but getting all the accoutrements going
 to even start thinking about building a modern web application is an amount of work on
 par with a masters degree. Your six-months out-of-date understanding of webpack is now
@@ -41,13 +43,16 @@ decent start.
 
 - python3.8
 - flask
-- peewee (ORM)
+- [peewee](http://docs.peewee-orm.com/en/latest/peewee/) (ORM)
   - It's light, simple, and has all the features you want.
-- functioning asynchronous worker: powered by a database queue, a sleep loop, and
+- [functioning asynchronous
+  worker](https://github.com/jamesob/omgwebapp/blob/master/backend/changeme/worker.py):
+  powered by a database queue, a sleep loop, and
   no extra dependencies. Shouldn't be too hard to add Celery if you want it.
 - py.test
-  - Allows easy, Rust-style inline test functions.
-  - In-memory fixture database set up.
+  - Allows [easy, Rust-style inline test functions](https://github.com/jamesob/omgwebapp/commit/cfc04617c0dffabcae0c1edde4a7cc3417204651#diff-7002a6dda08096d34c21a6f182274de1R89-R122).
+  - [In-memory fixture
+    database](https://github.com/jamesob/omgwebapp/commit/cfc04617c0dffabcae0c1edde4a7cc3417204651#diff-a7c56826844ee9ea851d1b5fe95e6413R7-R17) set up.
 - mypy
   - TODO
 - sensible logging config
@@ -110,9 +115,12 @@ You'll need Docker and docker-compose on host, but beyond that it should be a si
 matter of running `make build up logs`. Check out the `Makefile` for more
 details.
 
+Then browse to http://localhost:7082/.
+
 ### Things you should consider doing before production
 
 - [ ] pin and vendor all dependencies
+- [ ] think about some kind of TLS solution
 
 ### Credits
 
