@@ -59,8 +59,12 @@ node-sh:
 > $(DC) run --rm node /bin/bash
 .PHONY: node-sh
 
+# Since make doesn't do argument forwarding, use this like 
+#
+#   $ PKG=some-package-name make node-add-pkg`
+#
 node-add-pkg:
-> $(DC) exec yarn add $$PKG
+> $(DC) exec webpack yarn add $$PKG
 .PHONY: node-add-pkg
 
 test:
